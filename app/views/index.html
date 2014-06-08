@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="grabs">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="-1">
+        <title>Grabs</title>
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+    </head>
+    <body>
+
+        <!-- Include Default Layout -->
+        <div ng-include="'/views/layouts/default.html'"></div>
+
+        <!-- Only Live Mode -->
+        <script type="text/javascript" src="js/common.js"></script>
+
+        <!-- Only Dev Mode -->
+        <script type="text/javascript" src="js/components/angular/angular.js"></script>
+        <script type="text/javascript" src="js/components/angular-route/angular-route.js"></script>
+        <script type="text/javascript" src="js/config/ng-config.js"></script>
+
+        <!-- Only Dev Mode -->
+        <script src="http://localhost:35729/livereload.js"></script>
+    </body>
+</html>
