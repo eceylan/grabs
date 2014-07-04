@@ -1,13 +1,10 @@
 var grabs = angular.module('grabs', ['ngRoute']);
 
-grabs.config(['$routeProvider', function ($routeProvider) {
+grabs.config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     'use strict';
 
-    // HTML5 Push State
-    //$locationProvider.html5Mode(true);
-
     $routeProvider.when('/', {
-        template: 'Index Page Detail...'
+        templateUrl: '/views/mainpage/mainpage.html'
     }).
     when('/contact', {
         templateUrl: '/views/contact/contact.html'
@@ -15,4 +12,7 @@ grabs.config(['$routeProvider', function ($routeProvider) {
     otherwise({
         redirectTo: '/'
     });
+
+    // HTML5 Push State
+    $locationProvider.html5Mode(true);
 }]);

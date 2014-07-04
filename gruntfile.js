@@ -1,4 +1,7 @@
 module.exports = function (grunt) {
+
+    var modRewrite = require('connect-modrewrite');
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
@@ -8,7 +11,7 @@ module.exports = function (grunt) {
         stylus: {
             compile: {
                 files: {
-                    'build/css/common.css' : 'app/css/*.styl'
+                    'build/css/common.css' : 'app/css/import.styl'
                 }
             }
         },
@@ -56,10 +59,26 @@ module.exports = function (grunt) {
             }
         },
         connect: {
+            options: {
+                port: 9000,
+                livereload: 35729,
+                hostname: 'localhost'
+            },
             server: {
                 options: {
-                    port: 9000,
-                    base: 'build'
+                    open: true,
+                    base: 'build',
+                    middleware: function(connect, options) {
+                        var middlewares = [];
+
+                        middlewares.push(modRewrite(['^[^\\.]*$ /index.html [L]']));
+
+                        options.base.forEach(function(base) {
+                            middlewares.push(connect.static(base));
+                        });
+
+                        return middlewares;
+                    }
                 }
             }
         },
@@ -150,8 +169,11 @@ module.exports = function (grunt) {
         }
     });
 
-    // Load Npm Tasks with Matchdep 
-    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+    // Show Elapsed Time at The End
+    require('time-grunt')(grunt);
+
+    // Load Npm Tasks
+    require('load-grunt-tasks')(grunt);
 
     // Run Notify
     grunt.task.run('notify_hooks');

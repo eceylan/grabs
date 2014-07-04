@@ -9,8 +9,14 @@
     </head>
     <body>
 
-        <!-- Include Default Layout -->
-        <div ng-include="'/views/layouts/default.html'"></div>
+        <!-- Include Header -->
+        <div ng-include="'/views/common/header.html'"></div>
+
+        <!-- Main Content -->
+        <section ng-view></section>
+
+        <!-- Include Footer -->
+        <div ng-include="'/views/common/footer.html'"></div>
 
         <!-- Only Live Mode
         <script type="text/javascript" src="js/common.js"></script>
