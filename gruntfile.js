@@ -111,6 +111,20 @@ module.exports = function (grunt) {
                 ]
             }
         },
+        notify_hooks: {
+            options: {
+                enabled: true,
+                max_jshint_notifications: 5,
+                title: "Grabs"
+            }
+        },
+        notify: {
+            connect: {
+                options: {
+                    message: 'Server is ready!'
+                }
+            }
+        },
         watch: {
             all: {
                 options: {
@@ -139,6 +153,9 @@ module.exports = function (grunt) {
     // Load Npm Tasks with Matchdep 
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
+    // Run Notify
+    grunt.task.run('notify_hooks');
+
     // $ grunt
     grunt.registerTask('default', [
         'clean',
@@ -147,6 +164,7 @@ module.exports = function (grunt) {
         'copy:js',
         'stylus',
         'connect:server',
+        'notify:connect',
         'watch'
     ]);
     // $ grunt live
