@@ -30,6 +30,13 @@ module.exports = function (grunt) {
                 dest: 'build',
                 filter: 'isFile'
             },
+            img: {
+                expand: true,
+                cwd: 'app',
+                src: 'img/**/*.png',
+                dest: 'build',
+                filter: 'isFile'
+            },
             js: {
                 expand: true,
                 cwd: 'app',
@@ -107,6 +114,20 @@ module.exports = function (grunt) {
                 dest: 'build'
             }
         },
+        imagemin: {
+            png: {
+                options: {
+                    optimizationLevel: 7
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'app',
+                    src: 'img/**/*.png',
+                    dest: 'build',
+                    ext: '.png'
+                }]
+            }
+        },
         uglify: {
             options: {
                 'lift-vars': false,
@@ -138,9 +159,9 @@ module.exports = function (grunt) {
             }
         },
         notify: {
-            connect: {
+            watch: {
                 options: {
-                    message: 'Server is ready!'
+                    message: 'Grabs is ready!'
                 }
             }
         },
@@ -169,9 +190,6 @@ module.exports = function (grunt) {
         }
     });
 
-    // Show Elapsed Time at The End
-    require('time-grunt')(grunt);
-
     // Load Npm Tasks
     require('load-grunt-tasks')(grunt);
 
@@ -183,10 +201,11 @@ module.exports = function (grunt) {
         'clean',
         'copy:index',
         'copy:html',
+        'copy:img',
         'copy:js',
         'stylus',
         'connect:server',
-        'notify:connect',
+        'notify:watch',
         'watch'
     ]);
     // $ grunt live
@@ -199,6 +218,7 @@ module.exports = function (grunt) {
         'uglify:live',
         'htmlmin:index',
         'htmlmin:views',
+        'imagemin',
         'filerev'
     ]);
 
