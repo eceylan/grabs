@@ -73,7 +73,7 @@ module.exports = function (grunt) {
             },
             server: {
                 options: {
-                    open: true,
+                    // open: true,
                     base: 'build',
                     middleware: function(connect, options) {
                         var middlewares = [];
@@ -165,6 +165,27 @@ module.exports = function (grunt) {
                 }
             }
         },
+        sprite: {
+            normal: {
+                src: 'app/img/normal/**/*.png',
+                destImg: 'build/img/sprite.png',
+                destCSS: 'app/css/sprite.styl',
+                imgPath: '/build/img/sprite.png',
+                algorithm: 'binary-tree',
+                padding: 1
+            },
+            retina: {
+                src: 'app/img/retina/**/*.png',
+                destImg: 'build/img/sprite-retina.png',
+                destCSS: 'app/css/sprite-retina.styl',
+                imgPath: '/build/img/sprite-retina.png',
+                algorithm: 'binary-tree',
+                padding: 2,
+                cssVarMap: function (sprite) {
+                    sprite.name = sprite.name + '-2x';
+                }
+            }
+        },
         watch: {
             all: {
                 options: {
@@ -201,8 +222,9 @@ module.exports = function (grunt) {
         'clean',
         'copy:index',
         'copy:html',
-        'copy:img',
+        //'copy:img',
         'copy:js',
+        'sprite',
         'stylus',
         'connect:server',
         'notify:watch',
