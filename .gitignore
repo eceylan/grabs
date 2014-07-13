@@ -7,3 +7,5 @@
 build
 node_modules
 app/js/components
+app/css/sprite-retina.styl
+app/css/sprite.styl

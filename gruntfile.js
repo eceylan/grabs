@@ -33,9 +33,8 @@ module.exports = function (grunt) {
             img: {
                 expand: true,
                 cwd: 'app',
-                src: 'img/**/*.png',
-                dest: 'build',
-                filter: 'isFile'
+                src: ['img/**/*.png', '!img/sprite/**/*.png', '!img/sprite-retina/**/*.png'],
+                dest: 'build'
             },
             js: {
                 expand: true,
@@ -61,7 +60,7 @@ module.exports = function (grunt) {
                 white: true,
                 strict: true,
                 globals: {
-                  console: true
+                    console: true
                 }
             }
         },
@@ -121,7 +120,7 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'app',
+                    cwd: 'build',
                     src: 'img/**/*.png',
                     dest: 'build',
                     ext: '.png'
@@ -167,18 +166,18 @@ module.exports = function (grunt) {
         },
         sprite: {
             normal: {
-                src: 'app/img/normal/**/*.png',
+                src: 'app/img/sprite/**/*.png',
                 destImg: 'build/img/sprite.png',
                 destCSS: 'app/css/sprite.styl',
-                imgPath: '/build/img/sprite.png',
+                imgPath: '/img/sprite.png',
                 algorithm: 'binary-tree',
                 padding: 1
             },
             retina: {
-                src: 'app/img/retina/**/*.png',
+                src: 'app/img/sprite-retina/**/*.png',
                 destImg: 'build/img/sprite-retina.png',
                 destCSS: 'app/css/sprite-retina.styl',
-                imgPath: '/build/img/sprite-retina.png',
+                imgPath: '/img/sprite-retina.png',
                 algorithm: 'binary-tree',
                 padding: 2,
                 cssVarMap: function (sprite) {
@@ -222,7 +221,7 @@ module.exports = function (grunt) {
         'clean',
         'copy:index',
         'copy:html',
-        //'copy:img',
+        'copy:img',
         'copy:js',
         'sprite',
         'stylus',
@@ -240,6 +239,7 @@ module.exports = function (grunt) {
         'uglify:live',
         'htmlmin:index',
         'htmlmin:views',
+        'sprite',
         'imagemin',
         'filerev'
     ]);

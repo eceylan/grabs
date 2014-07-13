@@ -1,0 +1,64 @@
+/*
+Stylus variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon_home_width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon_home = x y offset_x offset_y width height total_width total_height image_path;
+*/
+$check_x = 0px;
+$check_y = 0px;
+$check_offset_x = 0px;
+$check_offset_y = 0px;
+$check_width = 32px;
+$check_height = 32px;
+$check_total_width = 65px;
+$check_total_height = 32px;
+$check_image = '/img/sprite.png';
+$check = 0px 0px 0px 0px 32px 32px 65px 32px '/img/sprite.png';
+$delete_x = 33px;
+$delete_y = 0px;
+$delete_offset_x = -33px;
+$delete_offset_y = 0px;
+$delete_width = 32px;
+$delete_height = 32px;
+$delete_total_width = 65px;
+$delete_total_height = 32px;
+$delete_image = '/img/sprite.png';
+$delete = 33px 0px -33px 0px 32px 32px 65px 32px '/img/sprite.png';
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  spriteWidth($icon_home)
+}
+
+.icon-email {
+  sprite($icon_email)
+}
+*/
+spriteWidth($sprite) {
+  width: $sprite[4];
+}
+
+spriteHeight($sprite) {
+  height: $sprite[5];
+}
+
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+spriteImage($sprite) {
+  background-image: url($sprite[8]);
+}
+
+sprite($sprite) {
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
+}
