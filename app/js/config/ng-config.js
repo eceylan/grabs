@@ -4,7 +4,7 @@ grabs.config(['$locationProvider', '$routeProvider', function ($locationProvider
     'use strict';
 
     $routeProvider.when('/', {
-        templateUrl: '/views/mainpage/mainpage.html'
+        templateUrl: '/views/home/home.html'
     }).
     when('/contact', {
         templateUrl: '/views/contact/contact.html'
