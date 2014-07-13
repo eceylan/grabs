@@ -1,4 +1,7 @@
-var grabs = angular.module('grabs', ['ngRoute']);
+var grabs = angular.module('grabs', [
+        'ngRoute',
+        'pageTitle'
+    ]);
 
 grabs.config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     'use strict';
