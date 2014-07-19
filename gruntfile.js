@@ -42,6 +42,13 @@ module.exports = function (grunt) {
                 src: 'js/**/*',
                 dest: 'build',
                 filter: 'isFile'
+            },
+            ctrl: {
+                expand: true,
+                cwd: 'app',
+                src: 'views/**/*.js',
+                dest: 'build',
+                filter: 'isFile'
             }
         },
         jshint: {
@@ -223,6 +230,7 @@ module.exports = function (grunt) {
         'copy:html',
         'copy:img',
         'copy:js',
+        'copy:ctrl',
         'sprite',
         'stylus',
         'connect:server',
@@ -254,6 +262,7 @@ module.exports = function (grunt) {
     ]);
     grunt.registerTask('js', [
         'copy:js',
+        'copy:ctrl',
         'jshint'
     ]);
 };

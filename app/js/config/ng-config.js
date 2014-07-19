@@ -10,7 +10,8 @@ grabs.config(['$locationProvider', '$routeProvider', function ($locationProvider
         templateUrl: '/views/home/home.html'
     }).
     when('/contact', {
-        templateUrl: '/views/contact/contact.html'
+        templateUrl: '/views/contact/contact.html',
+        controller: 'ContactCtrl'
     }).
     otherwise({
         redirectTo: '/'
