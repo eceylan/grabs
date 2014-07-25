@@ -1,6 +1,23 @@
 module.exports = function (grunt) {
 
-    var modRewrite = require('connect-modrewrite');
+    var modRewrite = require('connect-modrewrite'),
+        sortedJsPath = [
+            'js/components/angular/*.js',
+            'js/components/angular-route/*.js',
+            'js/components/**/*.js',
+            'js/config/**/*.js',
+            'js/directive/**/*.js',
+            'views/**/*.js'
+        ],
+        getUglifyFiles = function () {
+            var paths = [];
+
+            sortedJsPath.map(function (path) {
+                paths.push('app/' + path);
+            });
+
+            return paths;
+        };
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -52,7 +69,7 @@ module.exports = function (grunt) {
             }
         },
         jshint: {
-            files: 'app/js/*.js',
+            files: 'app/views/**/*.js',
             options: {
                 unused: true,
                 curly: true,
@@ -79,7 +96,7 @@ module.exports = function (grunt) {
             },
             server: {
                 options: {
-                    // open: true,
+                    open: true,
                     base: 'build',
                     middleware: function(connect, options) {
                         var middlewares = [];
@@ -110,13 +127,13 @@ module.exports = function (grunt) {
                 collapseWhitespace: true
             },
             index: {
-                src: 'build/index.html',
+                src: 'app/views/index.html',
                 dest: 'build/index.html'
             },
             views: {
                 expand: true,
-                cwd: 'build',
-                src: 'views/**/*.html',
+                cwd: 'app',
+                src: ['views/**/*.html', '!views/index.html'],
                 dest: 'build'
             }
         },
@@ -140,7 +157,7 @@ module.exports = function (grunt) {
                 compress: false
             },
             live: {
-                src: ['app/js/config/*.js', 'app/js/components/**/*.js'],
+                src: getUglifyFiles(),
                 dest: 'build/js/common.js',
                 options: {
                     sourceMap: true,
@@ -192,6 +209,20 @@ module.exports = function (grunt) {
                 }
             }
         },
+        template: {
+            development: {
+                src: 'app/views/index.html',
+                dest: 'build/index.html',
+                options: {
+                    data: function () {
+                        return {
+                            development: true,
+                            jsFiles: grunt.file.expand({cwd: 'app'}, sortedJsPath)
+                        };
+                    }
+                }
+            }
+        },
         watch: {
             all: {
                 options: {
@@ -233,6 +264,7 @@ module.exports = function (grunt) {
         'copy:ctrl',
         'sprite',
         'stylus',
+        'template:development',
         'connect:server',
         'notify:watch',
         'watch'
@@ -241,8 +273,6 @@ module.exports = function (grunt) {
     grunt.registerTask('live', [
         'bower:install',
         'clean',
-        'copy:index',
-        'copy:html',
         'stylus',
         'uglify:live',
         'htmlmin:index',

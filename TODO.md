@@ -1,6 +1,8 @@
 ## Grabs Todo List
 
-1. Create Live mode and Dev mode
+1. Header and Footer Style Seperate
 2. Files Version
-3. Add Inline Style
-4. Compress Priorty
+4. Change project name
+5. ng-min
+6. grunt-template
+7. ng-template
