@@ -4,7 +4,7 @@ Node.js, Npm and Grunt must be installed.
 
 Steps:
 
-1. `git clone git@github.com:sercaneraslan/Grabs.git`
+1. `git clone git@github.com:sercaneraslan/grabs.git`
 2. `npm install`
 3. `grunt bower:install`
 4. `grunt`
@@ -18,7 +18,7 @@ Kurulum için Node.js, Npm ve Grunt kurulu olmalıdır.
 
 Adımlar:
 
-1. `git clone git@github.com:sercaneraslan/Grabs.git`
+1. `git clone git@github.com:sercaneraslan/grabs.git`
 2. `npm install`
 3. `grunt bower:install`
 4. `grunt`
