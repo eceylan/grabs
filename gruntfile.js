@@ -17,18 +17,24 @@ module.exports = function (grunt) {
             });
 
             return paths;
-        };
+        },
+        myHash = new Date().valueOf().toString();
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        hash: myHash,
         clean: {
             build: 'build'
         },
         stylus: {
+            options: {
+                compress: false,
+                linenos: true
+            },
             compile: {
                 files: {
-                    'build/css/common.css' : 'app/css/import.styl'
+                    'build/css/app.min.<%= hash %>.css' : 'app/css/import.styl'
                 }
             }
         },
@@ -56,14 +62,7 @@ module.exports = function (grunt) {
             js: {
                 expand: true,
                 cwd: 'app',
-                src: 'js/**/*',
-                dest: 'build',
-                filter: 'isFile'
-            },
-            ctrl: {
-                expand: true,
-                cwd: 'app',
-                src: 'views/**/*.js',
+                src: ['js/**/*', 'views/**/*.js'],
                 dest: 'build',
                 filter: 'isFile'
             }
@@ -127,7 +126,7 @@ module.exports = function (grunt) {
                 collapseWhitespace: true
             },
             index: {
-                src: 'app/views/index.html',
+                src: 'build/index.html',
                 dest: 'build/index.html'
             },
             views: {
@@ -158,20 +157,11 @@ module.exports = function (grunt) {
             },
             live: {
                 src: getUglifyFiles(),
-                dest: 'build/js/common.js',
+                dest: 'build/js/app.min.<%= hash %>.js',
                 options: {
-                    sourceMap: true,
+                    sourceMap: false,
                     sourceMapIncludeSources: true
                 }
-            }
-        },
-        filerev: {
-            dist: {
-                src: [
-                    'build/js/**/*.js',
-                    'build/css/**/*.css',
-                    'build/img/**/*.{png,jpg,svg}'
-                ]
             }
         },
         notify_hooks: {
@@ -191,17 +181,17 @@ module.exports = function (grunt) {
         sprite: {
             normal: {
                 src: 'app/img/sprite/**/*.png',
-                destImg: 'build/img/sprite.png',
+                destImg: 'build/img/sprite-<%= hash %>.png',
                 destCSS: 'app/css/sprite.styl',
-                imgPath: '/img/sprite.png',
+                imgPath: '/img/sprite-<%= hash %>.png',
                 algorithm: 'binary-tree',
                 padding: 1
             },
             retina: {
                 src: 'app/img/sprite-retina/**/*.png',
-                destImg: 'build/img/sprite-retina.png',
+                destImg: 'build/img/sprite-retina-<%= hash %>.png',
                 destCSS: 'app/css/sprite-retina.styl',
-                imgPath: '/img/sprite-retina.png',
+                imgPath: '/img/sprite-retina-<%= hash %>.png',
                 algorithm: 'binary-tree',
                 padding: 2,
                 cssVarMap: function (sprite) {
@@ -210,15 +200,14 @@ module.exports = function (grunt) {
             }
         },
         template: {
-            development: {
+            dist: {
                 src: 'app/views/index.html',
                 dest: 'build/index.html',
                 options: {
-                    data: function () {
-                        return {
-                            development: true,
-                            jsFiles: grunt.file.expand({cwd: 'app'}, sortedJsPath)
-                        };
+                    data: {
+                        development: true,
+                        hash: myHash,
+                        jsFiles: grunt.file.expand({cwd: 'app'}, sortedJsPath)
                     }
                 }
             }
@@ -261,10 +250,9 @@ module.exports = function (grunt) {
         'copy:html',
         'copy:img',
         'copy:js',
-        'copy:ctrl',
         'sprite',
         'stylus',
-        'template:development',
+        'template',
         'connect:server',
         'notify:watch',
         'watch'
@@ -273,13 +261,16 @@ module.exports = function (grunt) {
     grunt.registerTask('live', [
         'bower:install',
         'clean',
+        'template',
+        'sprite',
         'stylus',
         'uglify:live',
         'htmlmin:index',
         'htmlmin:views',
-        'sprite',
+        'copy:img',
         'imagemin',
-        'filerev'
+        // 'connect:server',
+        // 'watch'
     ]);
 
     // Watch Tasks
@@ -292,7 +283,6 @@ module.exports = function (grunt) {
     ]);
     grunt.registerTask('js', [
         'copy:js',
-        'copy:ctrl',
         'jshint'
     ]);
 };

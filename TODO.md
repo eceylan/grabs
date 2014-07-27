@@ -1,5 +1,4 @@
 ## Grabs Todo List
 
-1. Files version
-2. ng-min
-3. ng-template
+1. SEO
+2. Seperate Stylus Files
