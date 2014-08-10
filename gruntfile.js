@@ -1,7 +1,8 @@
 module.exports = function (grunt) {
 
     var modRewrite = require('connect-modrewrite'),
-        sortedJsPath = [
+        myHash = new Date().valueOf().toString(),
+        sortedJsPaths = [
             'js/components/angular/*.js',
             'js/components/angular-route/*.js',
             'js/components/**/*.js',
@@ -9,16 +10,31 @@ module.exports = function (grunt) {
             'js/directive/**/*.js',
             'views/**/*.js'
         ],
-        getUglifyFiles = function () {
+        sortedCssPaths = [
+            'css/reset.',
+            'css/global.',
+            'css/**/*.',
+            'views/**/*.'
+        ],
+        editFilePaths = function (pathsArray, rootDirectory, fileType) {
             var paths = [];
 
-            sortedJsPath.map(function (path) {
-                paths.push('app/' + path);
+            pathsArray.map(function (path) {
+                paths.push(rootDirectory + path + fileType);
             });
 
             return paths;
         },
-        myHash = new Date().valueOf().toString();
+        stylusConfig = function () {
+            var config = {},
+                stylusFiles = grunt.file.expand({cwd: 'app'}, editFilePaths(sortedCssPaths, '', 'styl'));
+
+            stylusFiles.map(function (path) {
+                config['build/' + path.replace('styl', 'css')] = 'app/' + path;
+            });
+
+            return config;
+        };
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -28,13 +44,19 @@ module.exports = function (grunt) {
             build: 'build'
         },
         stylus: {
-            options: {
-                compress: false,
-                linenos: true
+            development: {
+                options: {
+                    compress: false,
+                    linenos: false
+                },
+                files: stylusConfig()
             },
-            compile: {
+            live: {
+                options: {
+                    compress: true
+                },
                 files: {
-                    'build/css/app.min.<%= hash %>.css' : 'app/css/import.styl'
+                    'build/css/app.min.<%= hash %>.css' : editFilePaths(sortedCssPaths, 'app/', 'styl')
                 }
             }
         },
@@ -156,7 +178,7 @@ module.exports = function (grunt) {
                 compress: false
             },
             live: {
-                src: getUglifyFiles(),
+                src: editFilePaths(sortedJsPaths, 'app/', ''),
                 dest: 'build/js/app.min.<%= hash %>.js',
                 options: {
                     sourceMap: false,
@@ -200,14 +222,25 @@ module.exports = function (grunt) {
             }
         },
         template: {
-            dist: {
+            development: {
                 src: 'app/views/index.html',
                 dest: 'build/index.html',
                 options: {
                     data: {
                         development: true,
                         hash: myHash,
-                        jsFiles: grunt.file.expand({cwd: 'app'}, sortedJsPath)
+                        cssFiles: grunt.file.expand({cwd: 'build'}, editFilePaths(sortedCssPaths, '', 'css')),
+                        jsFiles: grunt.file.expand({cwd: 'app'}, editFilePaths(sortedJsPaths, '', ''))
+                    }
+                }
+            },
+            live: {
+                src: 'app/views/index.html',
+                dest: 'build/index.html',
+                options: {
+                    data: {
+                        development: false,
+                        hash: myHash
                     }
                 }
             }
@@ -246,13 +279,12 @@ module.exports = function (grunt) {
     // $ grunt
     grunt.registerTask('default', [
         'clean',
-        'copy:index',
         'copy:html',
         'copy:img',
         'copy:js',
         'sprite',
-        'stylus',
-        'template',
+        'stylus:development',
+        'template:development',
         'connect:server',
         'notify:watch',
         'watch'
@@ -261,9 +293,9 @@ module.exports = function (grunt) {
     grunt.registerTask('live', [
         'bower:install',
         'clean',
-        'template',
+        'template:live',
         'sprite',
-        'stylus',
+        'stylus:live',
         'uglify:live',
         'htmlmin:index',
         'htmlmin:views',
