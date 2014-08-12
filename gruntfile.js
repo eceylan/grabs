@@ -230,7 +230,7 @@ module.exports = function (grunt) {
                         return {
                             development: true,
                             cssFiles: grunt.file.expand({cwd: 'build'}, editFilePaths(sortedCssPaths, '', 'css')),
-                            jsFiles: grunt.file.expand({cwd: 'app'}, editFilePaths(sortedJsPaths, '', ''))
+                            jsFiles: grunt.file.expand({cwd: 'app'}, sortedJsPaths)
                         }
                     }
                 }
@@ -293,10 +293,10 @@ module.exports = function (grunt) {
     // $ grunt live
     grunt.registerTask('live', [
         'clean',
-        'stylus:live',
-        'htmlmin:views',
         'copy:img',
         'sprite',
+        'stylus:live',
+        'htmlmin:views',
         'uglify:live',
         'imagemin',
         'template:live',
@@ -311,7 +311,7 @@ module.exports = function (grunt) {
         'copy:html'
     ]);
     grunt.registerTask('css', [
-        'stylus'
+        'stylus:development'
     ]);
     grunt.registerTask('js', [
         'copy:js',
