@@ -226,11 +226,12 @@ module.exports = function (grunt) {
                 src: 'app/views/index.html',
                 dest: 'build/index.html',
                 options: {
-                    data: {
-                        development: true,
-                        hash: myHash,
-                        cssFiles: grunt.file.expand({cwd: 'build'}, editFilePaths(sortedCssPaths, '', 'css')),
-                        jsFiles: grunt.file.expand({cwd: 'app'}, editFilePaths(sortedJsPaths, '', ''))
+                    data: function () {
+                        return {
+                            development: true,
+                            cssFiles: grunt.file.expand({cwd: 'build'}, editFilePaths(sortedCssPaths, '', 'css')),
+                            jsFiles: grunt.file.expand({cwd: 'app'}, editFilePaths(sortedJsPaths, '', ''))
+                        }
                     }
                 }
             },
@@ -291,16 +292,15 @@ module.exports = function (grunt) {
     ]);
     // $ grunt live
     grunt.registerTask('live', [
-        'bower:install',
         'clean',
-        'template:live',
-        'sprite',
         'stylus:live',
-        'uglify:live',
-        'htmlmin:index',
         'htmlmin:views',
         'copy:img',
+        'sprite',
+        'uglify:live',
         'imagemin',
+        'template:live',
+        'htmlmin:index',
         // 'connect:server',
         // 'watch'
     ]);
