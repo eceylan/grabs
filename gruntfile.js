@@ -61,13 +61,6 @@ module.exports = function (grunt) {
             }
         },
         copy: {
-            index: {
-                expand: true,
-                cwd: 'app/views',
-                src: 'index.html',
-                dest: 'build',
-                filter: 'isFile'
-            },
             html: {
                 expand: true,
                 cwd: 'app',
@@ -307,7 +300,7 @@ module.exports = function (grunt) {
 
     // Watch Tasks
     grunt.registerTask('html', [
-        'copy:index',
+        'template:development',
         'copy:html'
     ]);
     grunt.registerTask('css', [
