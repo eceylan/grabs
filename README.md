@@ -54,6 +54,9 @@ Live modunda HTML, CSS ve JavaScript dosyaları sıkıştırılır. CSS'ler ve J
 #### JSHint
 JSHint, JavaScript'lerinizin her kod değişiminde otomatik olarak kontrol edilmesi sağlar. "gruntfile.js" dosyasındaki "jshint" alanından ayarlar değiştirilebilir.
 
+#### Kod Karmaşıklık Raporu
+Proje içinde kullanılanılan JavaScript'lerin karmaşıklık raporunu oluşturur. "gruntfile.js" dosyasındaki "plato" alanından ayarlar değiştirilebilir. "grunt report" komutuyla raporu görüntüleyebilirsiniz.
+
 #### HTML sıkıştırma
 HTML dosyalarının sıkıştırılmasını sağlar. "gruntfile.js" dosyasındaki "htmlmin" alanından ayarlar değiştirilebilir.
 

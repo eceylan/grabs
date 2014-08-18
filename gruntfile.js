@@ -102,15 +102,22 @@ module.exports = function (grunt) {
                 }
             }
         },
+        plato: {
+            report: {
+                files: {
+                    'reports/': ['app/js/**/*.js', 'app/views/**/*.js', '!app/js/components/**/*.js'],
+                }
+            }
+        },
         connect: {
             options: {
                 port: 9000,
                 livereload: 35729,
-                hostname: 'localhost'
+                hostname: 'localhost',
+                open: true
             },
             server: {
                 options: {
-                    open: true,
                     base: 'build',
                     middleware: function(connect, options) {
                         var middlewares = [];
@@ -123,6 +130,12 @@ module.exports = function (grunt) {
 
                         return middlewares;
                     }
+                }
+            },
+            report: {
+                options: {
+                    base: 'reports',
+                    keepalive: true
                 }
             }
         },
@@ -296,6 +309,11 @@ module.exports = function (grunt) {
         'htmlmin:index',
         'connect:server',
         'watch'
+    ]);
+    // $ grunt report
+    grunt.registerTask('report', [
+        'plato:report',
+        'connect:report'
     ]);
 
     // Watch Tasks
