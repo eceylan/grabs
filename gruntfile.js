@@ -294,8 +294,8 @@ module.exports = function (grunt) {
         'imagemin',
         'template:live',
         'htmlmin:index',
-        // 'connect:server',
-        // 'watch'
+        'connect:server',
+        'watch'
     ]);
 
     // Watch Tasks
