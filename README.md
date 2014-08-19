@@ -32,7 +32,7 @@ Grunt eklentileri ile dilediğiniz görevi projenize ekleyebilirsiniz.  "gruntfi
 
 #### Angular
 Proje içinde Angular kuruludur. HTML5 Push State desteği açıktır ve her isteğin index.html'e gitmesi için ayarlar yapılmıştır. "app/config/ng-config.js" dosyasından ayarlar değiştirilebilir.
-2
+
 #### Bower
 Bower ile dışarı bağımlı olduğunuz kütüphanelerin dosyalarını otomatik olarak çekebilirsiniz. "bower.json" dosyasını düzenleyerek ve "grunt bower:install" komutunu kullanarak istediğiniz kütüphanelerin çekilmesini sağlayabilirsiniz. "gruntfile.js" dosyasındaki "bower" alanından grunt ayarları değiştirilebilir.
 
