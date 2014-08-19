@@ -35,39 +35,71 @@
     <ul>
         <li>
             <h3>GRUNT</h3>
-            <p>Grunt eklentileri ile dilediğiniz görevi projenize ekleyebilirsiniz. "gruntfile.js" dosyasından ayarlar değiştirilebilir.</p>
+            <p>Grunt eklentileri ile dilediğiniz görevi projenize ekleyebilirsiniz. <strong>gruntfile.js</strong> dosyasından ayarlar değiştirilebilir.</p>
         </li>
         <li>
             <h3>ANGULAR</h3>
-            <p>Proje içinde Angular kuruludur. HTML5 Push State desteği açıktır ve her isteğin index.html'e gitmesi için ayarlar yapılmıştır. "app/config/ng-config.js" dosyasından ayarlar değiştirilebilir.</p>
+            <p>Proje içinde AngularJS kuruludur. HTML5 Push State desteği açıktır ve her isteğin <strong>index.html'e</strong> gitmesi için ayarlar yapılmıştır. <strong>app/config/ng-config.js</strong> dosyasından ayarlar değiştirilebilir.</p>
         </li>
         <li>
             <h3>BOWER</h3>
-            <p>Bower ile dışarı bağımlı olduğunuz kütüphanelerin dosyalarını otomatik olarak çekebilirsiniz. "bower.json" dosyasını düzenleyerek ve "grunt bower:install" komutunu kullanarak istediğiniz kütüphanelerin çekilmesini sağlayabilirsiniz. "gruntfile.js" dosyasındaki "bower" alanından grunt ayarları değiştirilebilir.</p>
+            <p>Bower ile dışarı bağımlı olduğunuz kütüphanelerin dosyalarını otomatik olarak çekebilirsiniz. <strong>bower.json</strong> dosyasını düzenleyerek ve <strong>grunt bower:install</strong> komutunu kullanarak istediğiniz kütüphanelerin çekilmesini sağlayabilirsiniz. <strong>gruntfile.js</strong> dosyasındaki <strong>bower</strong> alanından grunt ayarları değiştirilebilir.</p>
         </li>
         <li>
-            <h3>GRUNT</h3>
-            <p>Grunt eklentileri ile dilediğiniz görevi projenize ekleyebilirsiniz. "gruntfile.js" dosyasından ayarlar değiştirilebilir.</p>
+            <h3>STYLUS</h3>
+            <p>Stylus dosyalarınızın her kod değişiminde otomatik olarak CSS'e derlenmesini ve sıkıştırılmasını sağlar. <strong>gruntfile.js</strong> dosyasındaki <strong>stylus</strong> alanından ayarlar değiştirilebilir.</p>
         </li>
         <li>
-            <h3>ANGULAR</h3>
-            <p>Proje içinde Angular kuruludur. HTML5 Push State desteği açıktır ve her isteğin index.html'e gitmesi için ayarlar yapılmıştır. "app/config/ng-config.js" dosyasından ayarlar değiştirilebilir.</p>
+            <h3>SPRITE</h3>
+            <p><strong>app/img/sprite</strong> klasörü altındaki imajları <strong>sprite.png</strong> dosyasında birleştirir ve Stylus dosyalarında dosya isimleri ile pozisyon tanımlaya gerek kalmadan otomatik olarak kullabilmeyi sağlar. <strong>app/img/sprite-retina</strong> altındaki imajları da <strong>sprite-retina.png</strong> dosyasında birleştirir ve ekstra bir işleme gerek kalmadan retina desteği olan cihazlarda retina'lı sprite'ı kullandırır. Diğer klasörler işlem görmeden otomatik olarak <strong>build</strong> klösörüne taşınır. <strong>gruntfile.js</strong> dosyasındaki <strong>sprite</strong> alanından ayarlar değiştirilebilir.</p>
         </li>
         <li>
-            <h3>BOWER</h3>
-            <p>Bower ile dışarı bağımlı olduğunuz kütüphanelerin dosyalarını otomatik olarak çekebilirsiniz. "bower.json" dosyasını düzenleyerek ve "grunt bower:install" komutunu kullanarak istediğiniz kütüphanelerin çekilmesini sağlayabilirsiniz. "gruntfile.js" dosyasındaki "bower" alanından grunt ayarları değiştirilebilir.</p>
+            <h3>TEMPLATE</h3>
+            <p>HTML'e template özelliği ekler. <strong>gruntfile.js</strong> dosyasındaki <strong>template</strong> alanından ayarlar değiştirilebilir.</p>
         </li>
         <li>
-            <h3>GRUNT</h3>
-            <p>Grunt eklentileri ile dilediğiniz görevi projenize ekleyebilirsiniz. "gruntfile.js" dosyasından ayarlar değiştirilebilir.</p>
+            <h3>GELİŞTİRME MODU</h3>
+            <p>Geliştirme modunda HTML, CSS ve JavaScript dosyaları sıkıştırılmazlar. CSS'ler ve JavaScript'ler ayrı ayrı dosyalardadır. İmajlar küçültülmez. <strong>grunt</strong> komutu ile geliştirme modu çalıştırılabilir.</p>
         </li>
         <li>
-            <h3>ANGULAR</h3>
-            <p>Proje içinde Angular kuruludur. HTML5 Push State desteği açıktır ve her isteğin index.html'e gitmesi için ayarlar yapılmıştır. "app/config/ng-config.js" dosyasından ayarlar değiştirilebilir.</p>
+            <h3>LIVE MODU</h3>
+            <p>Live modunda HTML, CSS ve JavaScript dosyaları sıkıştırılır. CSS'ler ve JavaScript'ler tek dosya olarak birleştirilir. İmajlar küçültülür. Dosyaların cache'lenmesi engellenir. <strong>grunt live</strong> komutu ile live moduna geçilir.</p>
         </li>
         <li>
-            <h3>BOWER</h3>
-            <p>Bower ile dışarı bağımlı olduğunuz kütüphanelerin dosyalarını otomatik olarak çekebilirsiniz. "bower.json" dosyasını düzenleyerek ve "grunt bower:install" komutunu kullanarak istediğiniz kütüphanelerin çekilmesini sağlayabilirsiniz. "gruntfile.js" dosyasındaki "bower" alanından grunt ayarları değiştirilebilir.</p>
+            <h3>JSHINT</h3>
+            <p>JSHint, JavaScript'lerinizin her kod değişiminde otomatik olarak kontrol edilmesi sağlar. <strong>gruntfile.js</strong> dosyasındaki <strong>jshint</strong> alanından ayarlar değiştirilebilir.</p>
+        </li>
+        <li>
+            <h3>KOD KARMAŞIKLIK RAPORU</h3>
+            <p>Proje içinde kullanılanılan JavaScript'lerin karmaşıklık raporunu oluşturur. <strong>gruntfile.js</strong> dosyasındaki <strong>plato</strong> alanından ayarlar değiştirilebilir. <strong>grunt report</strong> komutuyla raporu görüntüleyebilirsiniz.</p>
+        </li>
+        <li>
+            <h3>HTML SIKIŞTIRMA</h3>
+            <p>HTML dosyalarının sıkıştırılmasını sağlar. <strong>gruntfile.js</strong> dosyasındaki <strong>htmlmin</strong> alanından ayarlar değiştirilebilir.</p>
+        </li>
+        <li>
+            <h3>İMAJ SIKIŞTIRMA</h3>
+            <p>İmajların sıkıştırılmasını sağlar. <strong>gruntfile.js</strong> dosyasındaki <strong>imagemin</strong> alanından ayarlar değiştirilebilir.</p>
+        </li>
+        <li>
+            <h3>JAVASCRIPT SIKIŞTIRMA</h3>
+            <p>JavaScript'lerin sıkıştırılmasını sağlar ve source map desteği vardır. <strong>gruntfile.js</strong> dosyasındaki <strong>uglify</strong> alanından ayarlar değiştirilebilir.</p>
+        </li>
+        <li>
+            <h3>BİLGİLENDİRME</h3>
+            <p>İşletim sistemi bazında bilgilendirme yapar. JavaScript hatalarını, konsolda oluşan hataları vb bildirim olarak gösterir. İstenilen görevler için bilgilendirmeler tanımlanabilir. <strong>gruntfile.js</strong> dosyasındaki <strong>notify_hooks</strong> alanından ayarlar değiştirilebilir.</p>
+        </li>
+        <li>
+            <h3>CACHE</h3>
+            <p>Sıkıştırılan HTML, CSS, JavaScript ve imaj dosyalarının sonuna her seferinde tarihe göre değişen rakamlar ekler. Örneğin; <strong>app.min.1408295277445.css</strong>.</p>
+        </li>
+        <li>
+            <h3>SERVER</h3>
+            <p>Server kullanma özelliği sağlar. <strong>gruntfile.js</strong> dosyasındaki <strong>connect</strong> alanından ayarlar değiştirilebilir.</p>
+        </li>
+        <li>
+            <h3>LIVERELOAD</h3>
+            <p>Herhangi bir HTML, CSS ya da JS dosyası değiştiğinde otomatik olarak tarayıcıdaki sayfayı yeniler. <strong>gruntfile.js</strong> dosyasındaki <strong>connect</strong> alanından ayarlar değiştirilebilir.</p>
         </li>
     </ul>
 </div>

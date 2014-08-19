@@ -31,7 +31,7 @@ Grabs özellikleri aşağıda listelenmiştir.
 
 #### Grunt
 
-Grunt eklentileri ile dilediğiniz görevi projenize ekleyebilirsiniz. `gruntfile.js` dosyasından ayarlar değiştirilebilir.
+[Grunt](http://www.gruntjs.com/) eklentileri ile dilediğiniz görevi projenize ekleyebilirsiniz. `gruntfile.js` dosyasından ayarlar değiştirilebilir.
 
 #### Angular
 
@@ -47,7 +47,7 @@ Proje içinde [AngularJS](http://angularjs.org) kuruludur. HTML5 Push State dest
 
 #### Sprite
 
-`app/img/sprite` klasörü altındaki imajları `sprite.png` dosyasında birleştirir ve Stylus dosyalarında dosya isimleri ile pozisyon tanımlaya gerek kalmadan otomatik olarak kullabilmeyi sağlar. `app/img/sprite-retina` altındaki imajları da `sprite-retina.png` dosyasında birleştirir ve ekstra bir işleme gerek kalmadan retina desteği olan cihazlarda retina'lı sprite'ı kullandırır. `app/img/sprite` ve `app/img/sprite-retina` haricindeki klasörler işlem görmeden otomatik olarak `build` klösörüne taşınır. `gruntfile.js` dosyasındaki `sprite` alanından ayarlar değiştirilebilir.
+`app/img/sprite` klasörü altındaki imajları `sprite.png` dosyasında birleştirir ve Stylus dosyalarında dosya isimleri ile pozisyon tanımlaya gerek kalmadan otomatik olarak kullabilmeyi sağlar. `app/img/sprite-retina` altındaki imajları da `sprite-retina.png` dosyasında birleştirir ve ekstra bir işleme gerek kalmadan retina desteği olan cihazlarda retina'lı sprite'ı kullandırır. Diğer klasörler işlem görmeden otomatik olarak `build` klösörüne taşınır. `gruntfile.js` dosyasındaki `sprite` alanından ayarlar değiştirilebilir.
 
 #### Template
 
@@ -59,7 +59,7 @@ Geliştirme modunda HTML, CSS ve JavaScript dosyaları sıkıştırılmazlar. CS
 
 #### Live Modu
 
-Live modunda HTML, CSS ve JavaScript dosyaları sıkıştırılır. CSS'ler ve JavaScript'ler tek dosya olarak birleştirilir. İmajlar küçültülür. Dosyaların cache'lenmesi engellenir. "grunt live" komutu ile live moduna geçilir.
+Live modunda HTML, CSS ve JavaScript dosyaları sıkıştırılır. CSS'ler ve JavaScript'ler tek dosya olarak birleştirilir. İmajlar küçültülür. Dosyaların cache'lenmesi engellenir. `grunt live` komutu ile live moduna geçilir.
 
 #### JSHint
 
@@ -75,7 +75,7 @@ HTML dosyalarının sıkıştırılmasını sağlar. `gruntfile.js` dosyasındak
 
 #### İmaj sıkıştırma
 
-Image'ların sıkıştırılmasını sağlar. `gruntfile.js` dosyasındaki `imagemin` alanından ayarlar değiştirilebilir.
+İmajların sıkıştırılmasını sağlar. `gruntfile.js` dosyasındaki `imagemin` alanından ayarlar değiştirilebilir.
 
 #### JavaScript sıkıştırma
 

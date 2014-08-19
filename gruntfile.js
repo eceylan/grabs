@@ -13,8 +13,6 @@ module.exports = function (grunt) {
         sortedCssPaths = [
             'css/reset.',
             'css/global.',
-            'css/sprite.',
-            'css/sprite-retina.',
             'css/variables.',
             'css/mixins.',
             'css/**/*.',

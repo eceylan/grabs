@@ -5,6 +5,8 @@
 */
 
 // Mixins
+@import sprite
+@import sprite-retina
 @import mixins
 
 
@@ -123,6 +125,9 @@ $transition = all 0.2s ease 0s
                 margin 5px 0
                 text-align right
 
+                strong
+                    font-weight 700
+
             &:nth-child(odd)
                 padding-right 25px
                 float left
@@ -135,7 +140,7 @@ $transition = all 0.2s ease 0s
                 &:before
                     content ""
                     display block
-                    height 275px
+                    height 350px
                     width 1px
                     background $gray
                     position absolute
@@ -147,8 +152,8 @@ $transition = all 0.2s ease 0s
                     display block
                     height 30px
                     width 30px
-                    // getSprite $check $check-2x
                     background-color $gray
+                    // getSprite $check $check-2x
                     border-radius 50%
                     border 5px solid #fff
                     position absolute
