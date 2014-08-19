@@ -5,9 +5,10 @@ Node.js, Npm and Grunt must be installed.
 Steps:
 
 1. `git clone https://github.com/sercaneraslan/grabs.git`
-2. `npm install`
-3. `grunt bower:install`
-4. `grunt`
+1. `cd grabs`
+1. `npm install`
+1. `grunt bower:install`
+1. `grunt`
 
 Check the address: http://localhost:9000/
 
@@ -19,9 +20,10 @@ Kurulum için Node.js, Npm ve Grunt kurulu olmalıdır.
 Adımlar:
 
 1. `git clone https://github.com/sercaneraslan/grabs.git`
-2. `npm install`
-3. `grunt bower:install`
-4. `grunt`
+1. `cd grabs`
+1. `npm install`
+1. `grunt bower:install`
+1. `grunt`
 
 Adresi kontrol et: http://localhost:9000/
 
