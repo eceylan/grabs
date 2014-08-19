@@ -1,113 +1,202 @@
+/* FIXME: Add Sprite Example
+
+@import mixins
+
+.retina-check
+    width 400px
+    margin 50px auto 0 auto
+
+    &:before
+        content ""
+        display inline-block
+        position relative
+        top 8px
+        left -8px
+        getSprite $check $check-2x
+
+.retina-delete
+    width 400px
+    margin 0 auto
+
+    &:before
+        content ""
+        display inline-block
+        position relative
+        top 8px
+        left -8px
+        getSprite $delete $delete-2x
+*/
+
+h1
+    font-size 55px
+    line-height 1.1
+    font-weight 800
+    letter-spacing -2px
+    text-align center
+
+h2
+    color #F6C815
+    font-size 48px
+    font-weight inherit
+    text-align center
+
 .home
-    padding 40px 0
+    padding 100px 0
+    width 1170px
+    margin 0 auto
+
+    > p
+        font-size 18px
+        color #333
+        margin-top 5px
+        text-align center
 
     .brands
         overflow hidden
+        padding 30px 0
 
         li
             float left
-            width 220px
-            padding 60px 35px 30px
+            width 290px
+
+            a
+                display block
+                width 220px
+                height 125px
+                border-radius 220px
+                background-color #F6C815
+                padding-top 95px
+                font-size 30px
+                font-weight 800
+                text-align center
+                color #fff
+                margin 0 auto 20px auto
+                text-decoration none
+                position relative
+                transition all 0.2s ease 0s
+
+                &:before
+                    content ""
+                    width 211px
+                    height 212px
+                    border-radius 50%
+                    box-shadow 0 0 0 4px #f6c815
+                    position absolute
+                    top 4px
+                    left 4px
+                    transition all 0.2s ease 0s
+
+                &:hover
+                    font-size 40px
+                    transition all 0.2s ease 0s
+
+                &:hover:before
+                    transform scale(1.1)
+                    transition all 0.2s ease 0s
 
             &:nth-child(2)
             &:nth-child(4)
                 a
                     background-color #676767
 
-            a
-                width 220px
-                height 125px
-                border-radius 220px
-                background-color #F6C815
-                display block
-                padding-top 95px
-                font-size 30px
-                color #fff
-                margin-bottom 20px
-                text-decoration none
+                    &:before
+                        box-shadow 0 0 0 4px #676767
 
             h3
                 font-weight 600
-                font-size 17px
-                margin-bottom 10px
+                font-size 18px
+                margin 25px 0 10px 0
+                text-align center
 
             p
                 font-size 14px
-                line-height 25px
+                line-height 28px
+                color #333
+                text-align center
 
 .team
-	border-top 1px dotted #c3c3c3
-	padding 50px 0
+    border-top 1px dotted #c3c3c3
+    padding 100px 0
 
-	.team-members
-		overflow hidden
-		
-		> li
-			display block
-			width 490px
-			text-align left
-			background-color #f8f7f7
-			min-height 160px
-			margin-top 100px
-			display block
-			padding 25px
-			float left
+    div
+        width 1170px
+        margin 0 auto
 
-			img
-				width 140px
-				border-radius 140px
-				border 4px solid #f8f7f7
-				margin-left -14px
-				margin-top -100px
+    > p
+        font-size 18px
+        color #333
+        margin-top 5px
+        text-align center
 
-			h3
-				text-align right
-				color #e3b70c
-				font-size 30px
-				font-weight 600
-				margin-top -51px
+    .team-members
+        overflow hidden
+        
+        > li
+            display block
+            width 490px
+            text-align left
+            background-color #f8f7f7
+            min-height 160px
+            margin-top 100px
+            display block
+            padding 25px
+            float left
 
-			span
-				font-size 16px
-				line-height 24px
-				font-weight 600
-				display block
-				text-align right
+            img
+                width 140px
+                border-radius 140px
+                border 4px solid #f8f7f7
+                margin-left -14px
+                margin-top -100px
 
-			p
-				font-size 14px
-				line-height 18px
-				padding-top 11px
-				text-align right
+            h3
+                text-align right
+                color #e3b70c
+                font-size 30px
+                font-weight 600
+                margin-top -51px
 
-			.social
-				padding-top 17px
+            span
+                font-size 16px
+                line-height 24px
+                font-weight 600
+                display block
+                text-align right
 
-				li
-					float right
-					margin-left 10px
+            p
+                font-size 14px
+                line-height 18px
+                padding-top 11px
+                text-align right
 
-				a
-					font-size 22px
-					width 39px
-					height 30px
-					border-radius 39px
-					background-color #444
-					display block
-					color #fff
-					padding-top 8px
-					text-align center
+            .social
+                padding-top 17px
 
-		> .alignment-right
-			margin-left 80px
-			text-align right
+                li
+                    float right
+                    margin-left 10px
 
-			h3
-			span
-			p
-				text-align left
+                a
+                    font-size 22px
+                    width 39px
+                    height 30px
+                    border-radius 39px
+                    background-color #444
+                    display block
+                    color #fff
+                    padding-top 8px
+                    text-align center
 
-			.social
-				li
-					float left
-					margin 0 10px 0 0
+        > .alignment-right
+            margin-left 80px
+            text-align right
+
+            h3
+            span
+            p
+                text-align left
+
+            .social
+                li
+                    float left
+                    margin 0 10px 0 0
