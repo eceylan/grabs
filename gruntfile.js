@@ -13,6 +13,8 @@ module.exports = function (grunt) {
         sortedCssPaths = [
             'css/reset.',
             'css/global.',
+            'css/variables.',
+            'css/mixins.',
             'css/**/*.',
             'views/**/*.'
         ],
@@ -46,6 +48,7 @@ module.exports = function (grunt) {
         stylus: {
             development: {
                 options: {
+                    paths: ['app/css'],
                     compress: false,
                     linenos: false
                 },
@@ -53,6 +56,7 @@ module.exports = function (grunt) {
             },
             live: {
                 options: {
+                    paths: ['app/css'],
                     compress: true
                 },
                 files: {
@@ -71,7 +75,7 @@ module.exports = function (grunt) {
             img: {
                 expand: true,
                 cwd: 'app',
-                src: ['img/**/*.png', '!img/sprite/**/*.png', '!img/sprite-retina/**/*.png'],
+                src: ['img/**/*.*', '!img/sprite/**/*.png', '!img/sprite-retina/**/*.png'],
                 dest: 'build'
             },
             js: {
