@@ -13,8 +13,6 @@ module.exports = function (grunt) {
         sortedCssPaths = [
             'css/reset.',
             'css/global.',
-            'css/variables.',
-            'css/mixins.',
             'css/**/*.',
             'views/**/*.'
         ],
@@ -212,7 +210,7 @@ module.exports = function (grunt) {
         },
         sprite: {
             normal: {
-                src: 'app/img/sprite/**/*.png',
+                src: 'app/img/sprite/**/*.*',
                 destImg: 'build/img/sprite-<%= hash %>.png',
                 destCSS: 'app/css/sprite.styl',
                 imgPath: '/img/sprite-<%= hash %>.png',
@@ -220,7 +218,7 @@ module.exports = function (grunt) {
                 padding: 1
             },
             retina: {
-                src: 'app/img/sprite-retina/**/*.png',
+                src: 'app/img/sprite-retina/**/*.*',
                 destImg: 'build/img/sprite-retina-<%= hash %>.png',
                 destCSS: 'app/css/sprite-retina.styl',
                 imgPath: '/img/sprite-retina-<%= hash %>.png',

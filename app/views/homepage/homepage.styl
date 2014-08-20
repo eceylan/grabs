@@ -5,10 +5,7 @@
 */
 
 // Mixins
-@import sprite
-@import sprite-retina
 @import mixins
-
 
 $transition = all 0.2s ease 0s
 
@@ -100,7 +97,7 @@ $transition = all 0.2s ease 0s
                 line-height 28px
                 color #333
 .description
-    border-top 1px solid $gray
+    border-top 1px solid $softGray
 
     ul
         alignment()
@@ -150,10 +147,8 @@ $transition = all 0.2s ease 0s
                 &:after
                     content ""
                     display block
-                    height 30px
-                    width 30px
                     background-color $gray
-                    // getSprite $check $check-2x
+                    getSprite $check $check-2x
                     border-radius 50%
                     border 5px solid #fff
                     position absolute
@@ -164,10 +159,9 @@ $transition = all 0.2s ease 0s
                 h3
                 p
                     text-align left
-
     
 .development-team
-    border-top 1px solid $gray
+    border-top 1px solid $softGray
 
     div
         alignment()

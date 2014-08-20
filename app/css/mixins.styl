@@ -4,22 +4,17 @@
 *
 */
 @import variables
-
+@import sprite
+@import sprite-retina
 
 // Sprite Mixin
 getSprite(sprite1x, sprite2x)
-    sprite(sprite1x)
+    sprite sprite1x
 
-    @media only screen and (-webkit-min-device-pixel-ratio: 2),
-        only screen and ( min--moz-device-pixel-ratio: 2),
-        only screen and ( -o-min-device-pixel-ratio: 2/1),
-        only screen and ( min-device-pixel-ratio: 2),
-        only screen and ( min-resolution: 192dpi),
-        only screen and ( min-resolution: 2dppx) {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)
 
-        spriteImage(sprite2x)
+        spriteImage sprite2x
         background-size sprite1x[4] * 2 sprite1x[5]
-    }
 
 // Element Alignment Mixin
 alignment()
