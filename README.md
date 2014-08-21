@@ -12,7 +12,7 @@ Steps:
 
 ## Grabs Kurulumu
 
-Kurulum için [Node.js, Npm](http://nodejs.org) ve [Grunt](http://gruntjs.com) kurulu olmalıdır.
+Kurulum için [Node.js](http://nodejs.org), [Npm](https://www.npmjs.org/) ve [Grunt](http://gruntjs.com) kurulu olmalıdır.
 
 Adımlar:
 
