@@ -10,9 +10,6 @@ Steps:
 1. `grunt bower:install`
 1. `grunt`
 
-Check the address: `http://localhost:9000/`
-
-
 ## Grabs Kurulumu
 
 Kurulum için [Node.js, Npm](http://nodejs.org) ve [Grunt](http://gruntjs.com) kurulu olmalıdır.
@@ -25,9 +22,8 @@ Adımlar:
 1. `grunt bower:install`
 1. `grunt`
 
-Adresi kontrol et:` http://localhost:9000/`
 
-Grabs özellikleri aşağıda listelenmiştir.
+Grabs ile Neler Yapılabilir?
 
 #### Grunt
 

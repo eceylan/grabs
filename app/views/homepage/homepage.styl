@@ -1,40 +1,45 @@
-/*
-*
-* Homepage Styles
-*
-*/
-
-// Mixins
 @import mixins
 
+/*
+*
+* Common
+*
+*/
 $transition = all 0.2s ease 0s
 
 .introduction
+.how-to-install
 .description
 .development-team
     padding 100px 0
+    border-top 1px solid $softGray
 
     h1
-    h2
-    h3
-        text-align center
-
-    h1
-        font-size 55px
-        font-weight 800
-        letter-spacing -2px
-
-    h2
-        color $yellow
-        font-size 48px
-        font-weight inherit
-
     h3
         font-size 18px
         color #333
         margin-top 5px
+        text-align center
 
+    h2
+        font-size 55px
+        font-weight 800
+        letter-spacing -2px
+        text-align center
+
+        span
+            display block
+            color $yellow
+            font-size 48px
+            font-weight 300
+
+/*
+*
+* Introduction
+*
+*/
 .introduction
+    border-top none
     alignment()
 
     ul
@@ -96,9 +101,51 @@ $transition = all 0.2s ease 0s
                 font-size 14px
                 line-height 28px
                 color #333
-.description
-    border-top 1px solid $softGray
 
+/*
+*
+* How to Install
+*
+*/
+.how-to-install
+    h1
+    div
+    ol
+        alignment()
+
+    h1
+        margin 15px auto 35px auto
+
+    p
+        margin-bottom 25px
+        text-align center
+        color $black
+
+    ol
+        width 500px
+        margin-bottom 50px
+        background #f8f8f8
+        padding 10px 10px 10px 40px
+        border 1px solid #eee
+        border-radius 5px
+        line-height 30px
+
+        li
+            position relative
+
+            &:before
+                content "$"
+                position absolute
+                top 1px
+                left -20px
+
+
+/*
+*
+* Description
+*
+*/
+.description
     ul
         alignment()
         overflow hidden
@@ -159,10 +206,12 @@ $transition = all 0.2s ease 0s
                 h3
                 p
                     text-align left
-    
+/*
+*
+* Development Team
+*
+*/
 .development-team
-    border-top 1px solid $softGray
-
     div
         alignment()
 
