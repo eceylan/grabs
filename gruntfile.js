@@ -74,6 +74,12 @@ module.exports = function (grunt) {
                 src: ['img/**/*.*', '!img/sprite/**/*.png', '!img/sprite-retina/**/*.png'],
                 dest: 'build'
             },
+            font: {
+                expand: true,
+                cwd: 'app',
+                src: 'font/**.*',
+                dest: 'build'
+            },
             js: {
                 expand: true,
                 cwd: 'app',
@@ -288,6 +294,7 @@ module.exports = function (grunt) {
         'clean',
         'copy:html',
         'copy:img',
+        'copy:font',
         'copy:js',
         'sprite',
         'stylus:development',
@@ -300,6 +307,7 @@ module.exports = function (grunt) {
     grunt.registerTask('live', [
         'clean',
         'copy:img',
+        'copy:font',
         'sprite',
         'stylus:live',
         'htmlmin:views',

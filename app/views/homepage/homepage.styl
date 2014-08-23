@@ -2,16 +2,6 @@
 
 /*
 *
-* Sprite Example Usage:
-*
-* @import mixins
-*
-* getSprite $filename $filename-2x
-*
-*/
-
-/*
-*
 * Common
 *
 */
@@ -19,28 +9,25 @@ $transition = all 0.2s ease 0s
 
 .introduction
 .how-to-install
-.description
+.skills
     padding 100px 0
     border-top 1px solid $softGray
 
     h1
     h3
-        font-size 18px
+        font-size 20px
         color #333
         margin-top 5px
         text-align center
 
     h2
         font-size 55px
-        font-weight 800
-        letter-spacing -2px
         text-align center
 
         span
             display block
             color $yellow
             font-size 48px
-            font-weight 300
 
 /*
 *
@@ -53,7 +40,7 @@ $transition = all 0.2s ease 0s
 
     ul
         overflow hidden
-        padding 30px 0
+        padding 50px 0 25px
 
         li
             float left
@@ -68,7 +55,6 @@ $transition = all 0.2s ease 0s
                 border-radius 50%
                 background-color $yellow
                 font-size 30px
-                font-weight 800
                 line-height 223px
                 color #fff
                 position relative
@@ -109,12 +95,9 @@ $transition = all 0.2s ease 0s
                     &:hover:before
                         box-shadow 0 0 0 4px $gray
 
-            h5
-                font-weight 600
-                margin 25px 0 10px 0
-
             p
-                font-size 14px
+                margin-top 25px
+                font-size 18px
                 line-height 28px
                 color #333
 
@@ -124,17 +107,22 @@ $transition = all 0.2s ease 0s
 *
 */
 .how-to-install
-    h1
     div
     ul
         alignment()
 
     h1
-        margin 15px auto 35px auto
+        margin 50px 0 25px
+        font-size 18px
 
     p
+        font-size 18px
         text-align center
         color $black
+
+        a
+            font-family NueBold
+            font-weight 700
 
     ul
         width 500px
@@ -157,10 +145,10 @@ $transition = all 0.2s ease 0s
 
 /*
 *
-* Description
+* Skills
 *
 */
-.description
+.skills
     ul
         alignment()
         overflow hidden
@@ -173,19 +161,18 @@ $transition = all 0.2s ease 0s
 
             h3
                 color $yellow
-                font-size 14px
-                font-weight 600
+                font-size 20px
                 text-align right
 
             p
-                font-size 16px
+                font-size 18px
                 line-height 20px
                 color $black
                 margin 5px 0
                 text-align right
 
                 strong
-                    font-weight 700
+                    font-family NueBold
 
             &:nth-child(odd)
                 padding-right 25px
@@ -199,9 +186,9 @@ $transition = all 0.2s ease 0s
                 &:before
                     content ""
                     display block
-                    height 350px
+                    height 400px
                     width 1px
-                    background $gray
+                    background #dbdbdb
                     position absolute
                     top -50px
                     left 0

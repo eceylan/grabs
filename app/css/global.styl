@@ -1,14 +1,53 @@
-// Fonts
-@import url(http://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700,800);
-// Icons
-@import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
-// Variables
 @import variables
 
-body
-    font-family 'Raleway', Arial
-    color $gray
+@font-face
+   font-family NueLight
+   font-style normal
+   src url(../font/HelveticaNeue-UltraLight.otf)
 
+@font-face
+   font-family NueBold
+   font-style normal
+   src url(../font/HelveticaNeue-Light.otf)
+
+body
+    font-family NueLight
+
+body
 a
 a:visited
     color $gray
+
+/*
+*
+* Sprite Example Usage:
+*
+*
+* You must import the mixins file
+*
+* @import mixins
+*
+*
+* Default:
+*
+* .myClassName
+*     getSprite $myImageFileName
+*
+* Retina:
+*
+* .myClassName
+*     getSprite $myImageFileName $myRetinaImageFileName-2x
+*
+*/
+
+/*
+@import mixins
+
+// Default
+body
+    getSprite $check
+
+// Retina
+body
+    getSprite $check $check-2x
+*/

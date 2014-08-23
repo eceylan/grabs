@@ -1,26 +1,22 @@
 <div class="introduction" page-title="Grabs - Hazır Geliştirme Ortamı">
     <h2><span>Grabs</span> Hazır Geliştirme Ortamı</h2>
-    <h3>Geliştirme ortamınız saniyeler içerisinde hazır.</p>
+    <h3>Geliştirme ortamınız saniyeler içerisinde hazır</h3>
 
     <ul>
         <li>
             <a href="http://gruntjs.com/">Grunt</a>
-            <h5>Grunt</h5>
             <p>Grunt eklentileri ile dilediğiniz görevi projenize ekleyebilirsiniz.</p>
         </li>
         <li>
             <a href="https://angularjs.org/">Angular</a>
-            <h5>Angular</h5>
             <p>Angular desteği ile anında projenizi geliştirmeye başlayabilirsiniz.</p>
         </li>
         <li>
             <a href="http://bower.io/">Bower</a>
-            <h5>Bower</h5>
             <p>Bower ile dışarı bağımlı olduğunuz kütüphanelerin dosyalarını çekebilirsiniz.</p>
         </li>
         <li>
             <a href="http://learnboost.github.io/stylus/">Stylus</a>
-            <h5>Stylus</h5>
             <p>Stylus dosyalarınızın CSS'e derlenmesini ve sıkıştırılmasını sağlayabilirsiniz.</p>
         </li>
     </ul>
@@ -30,10 +26,10 @@
 <div class="how-to-install">
     <h2><span>Grabs</span> Nedir ? Nasıl Kurulur ?</h2>
 
-    <h1>Grabs, geliştirme ortamında ihtiyaç duyulan birçok özelliği bir arada sunan, bu özelliklere yenilerinin eklemenmesini kolaylaştıran, popüler kütüphanelerle projeye anında başlayabilmenizi ve hızlı geliştirme yapmanızı sağlar.</h1>
-
     <div>
-        <p>Grabs kurulumu için <a href="http://nodejs.org/">Node.js</a>, <a href="https://www.npmjs.org/">Npm</a> ve <a href="http://gruntjs.com/">Grunt</a>'ı kurmanız gereklidir. Aşağıdaki adımları uyguladığınızda Grabs çalışır hale gelecektir.</p>
+        <h1>Grabs, geliştirme ortamında ihtiyaç duyulan birçok özelliği bir arada sunan, bu özelliklere yenilerinin eklemenmesini kolaylaştıran, popüler kütüphanelerle projeye anında başlayabilmenizi ve hızlı geliştirme yapmanızı sağlar.</h1>
+
+        <p>Grabs için <a href="http://nodejs.org/">Node.js</a>, <a href="https://www.npmjs.org/">Npm</a> ve <a href="http://gruntjs.com/">Grunt</a> kurulu olmalıdır. Aşağıdaki adımları sırasıyla uyguladığınızda geliştirme ortamınız çalışır hale gelecektir.</p>
 
         <ul>
             <li>git clone https://github.com/sercaneraslan/grabs.git</li>
@@ -45,12 +41,11 @@
 
         <p>Evet, hepsi bu kadar.</p>
     </div>
-
 </div>
 <!-- .how-to-install -->
 
-<div class="description">
-    <h2><span>Grabs</span> ile Neler Yapılabilir</h2>
+<div class="skills">
+    <h2><span>Grabs</span> ile Neler Yapılabilir ?</h2>
 
     <ul>
         <li>
@@ -71,7 +66,10 @@
         </li>
         <li>
             <h3>SPRITE</h3>
-            <p><strong>app/img/sprite</strong> klasörü altındaki imajları <strong>sprite.png</strong> dosyasında birleştirir ve Stylus dosyalarında dosya isimleri ile pozisyon tanımlaya gerek kalmadan otomatik olarak kullabilmeyi sağlar. <strong>app/img/sprite-retina</strong> altındaki imajları da <strong>sprite-retina.png</strong> dosyasında birleştirir ve ekstra bir işleme gerek kalmadan retina desteği olan cihazlarda retina'lı sprite'ı kullandırır. Diğer klasörler işlem görmeden otomatik olarak <strong>build</strong> klösörüne taşınır. <strong>gruntfile.js</strong> dosyasındaki <strong>sprite</strong> alanından ayarlar değiştirilebilir.</p>
+            <p><strong>app/img/sprite</strong> klasörü altındaki imajları <strong>sprite.png</strong> dosyasında sprite olarak birleştirir ve Stylus dosyalarında dosya isimleri ile pozisyon tanımlaya gerek kalmadan otomatik olarak kullabilmeyi sağlar.
+            </p>
+            <p><strong>app/img/sprite-retina</strong> altındaki imajları da <strong>sprite-retina.png</strong> dosyasında sprite olarak birleştirir ve ekstra bir işleme gerek kalmadan retina desteği olan cihazlarda retina'lı sprite'ı kullandırır. Diğer klasörler işlem görmeden otomatik olarak <strong>build</strong> klösörüne taşınır.</p>
+            <p><strong>app/css/global.styl</strong> dosyasında örnek kullanım vardır. <strong>gruntfile.js</strong> dosyasındaki <strong>sprite</strong> alanından ayarlar değiştirilebilir.</p>
         </li>
         <li>
             <h3>TEMPLATE</h3>
@@ -83,7 +81,7 @@
         </li>
         <li>
             <h3>LIVE MODU</h3>
-            <p>Live modunda HTML, CSS ve JavaScript dosyaları sıkıştırılır. CSS'ler ve JavaScript'ler tek dosya olarak birleştirilir. İmajlar küçültülür. Dosyaların cache'lenmesi engellenir. <strong>grunt live</strong> komutu ile live moduna geçilir.</p>
+            <p>Live modda HTML, CSS ve JavaScript dosyaları sıkıştırılır. CSS'ler ve JavaScript'ler tek dosya olarak birleştirilir. İmajlar küçültülür. Dosyaların cache'lenmesi engellenir. <strong>grunt live</strong> komutu ile live modu çalıştırılabilir.</p>
         </li>
         <li>
             <h3>JSHINT</h3>
@@ -103,7 +101,7 @@
         </li>
         <li>
             <h3>JAVASCRIPT SIKIŞTIRMA</h3>
-            <p>JavaScript'lerin sıkıştırılmasını sağlar ve source map desteği vardır. <strong>gruntfile.js</strong> dosyasındaki <strong>uglify</strong> alanından ayarlar değiştirilebilir.</p>
+            <p>JavaScript'lerin sıkıştırılmasını sağlar. Ayrıca source map desteği vardır. <strong>gruntfile.js</strong> dosyasındaki <strong>uglify</strong> alanından ayarlar değiştirilebilir.</p>
         </li>
         <li>
             <h3>BİLGİLENDİRME</h3>
@@ -123,4 +121,4 @@
         </li>
     </ul>
 </div>
-<!-- .description -->
+<!-- .skills -->
