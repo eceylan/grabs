@@ -34,4 +34,4 @@ Adımlar:
 
 ### Dökümantasyon
 
-[grabs.in](http://grabs.in/tr) 'i ziyaret edin.
+[grabs.in](http://grabs.in/tr) web sitesini ziyaret edin.
