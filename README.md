@@ -1,3 +1,6 @@
+![duo](app/img/grabs/grabs.png)
+
+
 ## Grabs Install
 
 Node.js, Npm and Grunt must be installed.
