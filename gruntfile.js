@@ -5,9 +5,7 @@ module.exports = function (grunt) {
         sortedJsPaths = [
             'js/components/angular/*.js',
             'js/components/angular-route/*.js',
-            'js/components/**/*.js',
-            'js/config/**/*.js',
-            'js/directive/**/*.js',
+            'js/**/*.js',
             'views/**/*.js'
         ],
         sortedCssPaths = [
