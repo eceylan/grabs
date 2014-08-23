@@ -1,11 +1,7 @@
 ![duo](app/img/grabs/grabs.png)
 
-# Grabs
+# Grabs: Hazır Geliştirme Ortamı
 
-### English Documentation
-
-Visit the [grabs.in](http://grabs.in/) website.
-
-### Türkçe Dökümantasyon
+### Dökümantasyon
 
 [grabs.in](http://grabs.in/tr) 'i ziyaret edin.
