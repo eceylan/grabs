@@ -1,3 +1,9 @@
+/*
+*
+* Global Styles
+*
+*/
+
 @import variables
 
 @font-face
@@ -17,6 +23,10 @@ body
 a
 a:visited
     color $gray
+
+a
+    text-decoration none
+
 
 /*
 *
@@ -40,14 +50,22 @@ a:visited
 *
 */
 
-/*
+
+/* Test Default:
+
 @import mixins
 
-// Default
 body
     getSprite $check
 
-// Retina
+*/
+
+
+/* Test Retina:
+
+@import mixins
+
 body
     getSprite $check $check-2x
+
 */

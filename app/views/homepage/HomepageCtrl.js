@@ -1,5 +1,9 @@
-angular.module('grabs').controller('HomepageCtrl', function () {
+grabs.controller('HomepageCtrl', function ($scope, $route, languageService) {
     'use strict';
 
-    console.log('HomepageCtrl is working...');
+    $scope.lang = $route.current.key;
+
+    languageService.getLanguageFile('homepage/' + $scope.lang).success(function (response) {
+        $scope.ln = response;
+    });
 });

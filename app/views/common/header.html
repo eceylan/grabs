@@ -1,7 +1,20 @@
 <header>
-    <div>
+    <div ng-if="lang == 'en'">
         <p>
-            <a href="http://grabs.in" title="Grabs.in">Grabs<span>.in</span></a>
+            <a href="/">Grabs<span>.in</span></a>
+        </p>
+        <ul>
+            <li>
+                <a href="https://github.com/sercaneraslan/grabs">Github</a>
+            </li>
+            <li>
+                <a href="/tr">Türkçe</a>
+            </li>
+        </ul>
+    </div>
+    <div ng-if="lang == 'tr'">
+        <p>
+            <a href="/tr">Grabs<span>.in</span></a>
         </p>
         <ul>
             <li>
@@ -9,9 +22,6 @@
             </li>
             <li>
                 <a href="/">English</a>
-            </li>
-            <li>
-                <a href="/tr">Türkçe</a>
             </li>
         </ul>
     </div>

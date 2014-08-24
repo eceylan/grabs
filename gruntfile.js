@@ -68,6 +68,13 @@ module.exports = function (grunt) {
                 dest: 'build',
                 filter: 'isFile'
             },
+            json: {
+                expand: true,
+                cwd: 'app',
+                src: 'views/**/*.json',
+                dest: 'build',
+                filter: 'isFile'
+            },
             img: {
                 expand: true,
                 cwd: 'app',
@@ -279,6 +286,10 @@ module.exports = function (grunt) {
             js: {
                 files: 'app/**/*.js',
                 tasks: 'js'
+            },
+            json: {
+                files: 'app/**/*.json',
+                tasks: 'json'
             }
         }
     });
@@ -293,6 +304,7 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'clean',
         'copy:html',
+        'copy:json',
         'copy:img',
         'copy:font',
         'copy:js',
@@ -335,5 +347,8 @@ module.exports = function (grunt) {
     grunt.registerTask('js', [
         'copy:js',
         'jshint'
+    ]);
+    grunt.registerTask('json', [
+        'copy:json'
     ]);
 };

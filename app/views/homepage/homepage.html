@@ -1,124 +1,47 @@
-<div class="introduction" page-title="Grabs - Hazır Geliştirme Ortamı">
-    <h2><span>Grabs</span> Front-End Geliştirme Ortamı</h2>
-    <h3>Geliştirme ortamınız saniyeler içerisinde hazır</h3>
+<!-- Include Header -->
+<div ng-include="'/views/common/header.html'"></div>
+
+<div class="introduction" page-title="{{ ln.pageTitle }}">
+    <h2 ng-bind-html="ln.introduction.title | safeHtml"></h2>
+    <h3 ng-bind-="ln.introduction.subtitle"></h3>
 
     <ul>
-        <li>
-            <a href="http://gruntjs.com/">Grunt</a>
-            <p>Grunt eklentileri ile dilediğiniz görevi projenize ekleyebilirsiniz.</p>
-        </li>
-        <li>
-            <a href="https://angularjs.org/">Angular</a>
-            <p>Angular desteği ile anında projenizi geliştirmeye başlayabilirsiniz.</p>
-        </li>
-        <li>
-            <a href="http://bower.io/">Bower</a>
-            <p>Bower ile dışarı bağımlı olduğunuz kütüphanelerin dosyalarını çekebilirsiniz.</p>
-        </li>
-        <li>
-            <a href="http://learnboost.github.io/stylus/">Stylus</a>
-            <p>Stylus dosyalarınızın CSS'e derlenmesini ve sıkıştırılmasını sağlayabilirsiniz.</p>
+        <li ng-repeat="item in ln.introduction.items">
+            <a href="{{ item.url }}" ng-bind="item.name"></a>
+            <p ng-bind="item.text"></p>
         </li>
     </ul>
 </div>
 <!-- .introduction -->
 
 <div class="how-to-install">
-    <h2><span>Grabs</span> Nedir ? Nasıl Kurulur ?</h2>
+    <h2 ng-bind-html="ln.howToInstall.title | safeHtml"></h2>
 
     <div>
-        <h1>Grabs, geliştirme ortamında ihtiyaç duyulan birçok özelliği bir arada sunan, bu özelliklere yenilerinin eklemenmesini kolaylaştıran, popüler kütüphanelerle projeye anında başlayabilmenizi ve hızlı geliştirme yapmanızı sağlar.</h1>
+        <h1 ng-bind="ln.howToInstall.subtitle"></h1>
 
-        <p>Grabs için <a href="http://nodejs.org/">Node.js</a>, <a href="https://www.npmjs.org/">Npm</a> ve <a href="http://gruntjs.com/">Grunt</a> kurulu olmalıdır. Aşağıdaki adımları sırasıyla uyguladığınızda geliştirme ortamınız çalışır hale gelecektir.</p>
+        <p ng-bind-html="ln.howToInstall.description | safeHtml"></p>
 
         <ul>
-            <li>git clone https://github.com/sercaneraslan/grabs.git</li>
-            <li>cd grabs</li>
-            <li>npm install</li>
-            <li>grunt bower:install</li>
-            <li>grunt</li>
+            <li ng-repeat="step in ln.howToInstall.steps" ng-bind="step"></li>
         </ul>
 
-        <p>Evet, hepsi bu kadar.</p>
+        <p ng-bind="ln.howToInstall.thatsIt"></p>
     </div>
 </div>
 <!-- .how-to-install -->
 
 <div class="skills">
-    <h2><span>Grabs</span> ile Neler Yapılabilir ?</h2>
+    <h2 ng-bind-html="ln.skills.title | safeHtml"></h2>
 
     <ul>
-        <li>
-            <h3>GRUNT</h3>
-            <p>Grunt eklentileri ile dilediğiniz görevi projenize ekleyebilirsiniz. <strong>gruntfile.js</strong> dosyasından ayarlar değiştirilebilir.</p>
-        </li>
-        <li>
-            <h3>ANGULAR</h3>
-            <p>Proje içinde AngularJS kuruludur. HTML5 Push State desteği açıktır ve her isteğin <strong>index.html'e</strong> gitmesi için ayarlar yapılmıştır. <strong>app/config/ng-config.js</strong> dosyasından ayarlar değiştirilebilir.</p>
-        </li>
-        <li>
-            <h3>BOWER</h3>
-            <p>Bower ile dışarı bağımlı olduğunuz kütüphanelerin dosyalarını otomatik olarak çekebilirsiniz. <strong>bower.json</strong> dosyasını düzenleyerek ve <strong>grunt bower:install</strong> komutunu kullanarak istediğiniz kütüphanelerin çekilmesini sağlayabilirsiniz. <strong>gruntfile.js</strong> dosyasındaki <strong>bower</strong> alanından grunt ayarları değiştirilebilir.</p>
-        </li>
-        <li>
-            <h3>STYLUS</h3>
-            <p>Stylus dosyalarınızın her kod değişiminde otomatik olarak CSS'e derlenmesini ve sıkıştırılmasını sağlar. <strong>gruntfile.js</strong> dosyasındaki <strong>stylus</strong> alanından ayarlar değiştirilebilir.</p>
-        </li>
-        <li>
-            <h3>SPRITE</h3>
-            <p><strong>app/img/sprite</strong> klasörü altındaki imajları <strong>sprite.png</strong> dosyasında sprite olarak birleştirir ve Stylus dosyalarında dosya isimleri ile pozisyon tanımlaya gerek kalmadan otomatik olarak kullabilmeyi sağlar.
-            </p>
-            <p><strong>app/img/sprite-retina</strong> altındaki imajları da <strong>sprite-retina.png</strong> dosyasında sprite olarak birleştirir ve ekstra bir işleme gerek kalmadan retina desteği olan cihazlarda retina'lı sprite'ı kullandırır. Diğer klasörler işlem görmeden otomatik olarak <strong>build</strong> klösörüne taşınır.</p>
-            <p><strong>app/css/global.styl</strong> dosyasında örnek kullanım vardır. <strong>gruntfile.js</strong> dosyasındaki <strong>sprite</strong> alanından ayarlar değiştirilebilir.</p>
-        </li>
-        <li>
-            <h3>TEMPLATE</h3>
-            <p>HTML'e template özelliği ekler. <strong>gruntfile.js</strong> dosyasındaki <strong>template</strong> alanından ayarlar değiştirilebilir.</p>
-        </li>
-        <li>
-            <h3>GELİŞTİRME MODU</h3>
-            <p>Geliştirme modunda HTML, CSS ve JavaScript dosyaları sıkıştırılmazlar. CSS'ler ve JavaScript'ler ayrı ayrı dosyalardadır. İmajlar küçültülmez. <strong>grunt</strong> komutu ile geliştirme modu çalıştırılabilir.</p>
-        </li>
-        <li>
-            <h3>LIVE MODU</h3>
-            <p>Live modda HTML, CSS ve JavaScript dosyaları sıkıştırılır. CSS'ler ve JavaScript'ler tek dosya olarak birleştirilir. İmajlar küçültülür. Dosyaların cache'lenmesi engellenir. <strong>grunt live</strong> komutu ile live modu çalıştırılabilir.</p>
-        </li>
-        <li>
-            <h3>JSHINT</h3>
-            <p>JSHint, JavaScript'lerinizin her kod değişiminde otomatik olarak kontrol edilmesi sağlar. <strong>gruntfile.js</strong> dosyasındaki <strong>jshint</strong> alanından ayarlar değiştirilebilir.</p>
-        </li>
-        <li>
-            <h3>KOD KARMAŞIKLIK RAPORU</h3>
-            <p>Proje içinde kullanılanılan JavaScript'lerin karmaşıklık raporunu oluşturur. <strong>gruntfile.js</strong> dosyasındaki <strong>plato</strong> alanından ayarlar değiştirilebilir. <strong>grunt report</strong> komutuyla raporu görüntüleyebilirsiniz.</p>
-        </li>
-        <li>
-            <h3>HTML SIKIŞTIRMA</h3>
-            <p>HTML dosyalarının sıkıştırılmasını sağlar. <strong>gruntfile.js</strong> dosyasındaki <strong>htmlmin</strong> alanından ayarlar değiştirilebilir.</p>
-        </li>
-        <li>
-            <h3>İMAJ SIKIŞTIRMA</h3>
-            <p>İmajların sıkıştırılmasını sağlar. <strong>gruntfile.js</strong> dosyasındaki <strong>imagemin</strong> alanından ayarlar değiştirilebilir.</p>
-        </li>
-        <li>
-            <h3>JAVASCRIPT SIKIŞTIRMA</h3>
-            <p>JavaScript'lerin sıkıştırılmasını sağlar. Ayrıca source map desteği vardır. <strong>gruntfile.js</strong> dosyasındaki <strong>uglify</strong> alanından ayarlar değiştirilebilir.</p>
-        </li>
-        <li>
-            <h3>BİLGİLENDİRME</h3>
-            <p>İşletim sistemi bazında bilgilendirme yapar. JavaScript hatalarını, konsolda oluşan hataları vb bildirim olarak gösterir. İstenilen görevler için bilgilendirmeler tanımlanabilir. <strong>gruntfile.js</strong> dosyasındaki <strong>notify_hooks</strong> alanından ayarlar değiştirilebilir.</p>
-        </li>
-        <li>
-            <h3>CACHE</h3>
-            <p>Sıkıştırılan HTML, CSS, JavaScript ve imaj dosyalarının sonuna her seferinde tarihe göre değişen rakamlar ekler. Örneğin; <strong>app.min.1408295277445.css</strong>.</p>
-        </li>
-        <li>
-            <h3>SERVER</h3>
-            <p>Server kullanma özelliği sağlar. <strong>gruntfile.js</strong> dosyasındaki <strong>connect</strong> alanından ayarlar değiştirilebilir.</p>
-        </li>
-        <li>
-            <h3>LIVERELOAD</h3>
-            <p>Herhangi bir HTML, CSS ya da JS dosyası değiştiğinde otomatik olarak tarayıcıdaki sayfayı yeniler. <strong>gruntfile.js</strong> dosyasındaki <strong>connect</strong> alanından ayarlar değiştirilebilir.</p>
+        <li ng-repeat="item in ln.skills.items">
+            <h3 ng-bind="item.name"></h3>
+            <p ng-bind-html="item.text | safeHtml"></p>
         </li>
     </ul>
 </div>
 <!-- .skills -->
+
+<!-- Include Footer -->
+<div ng-include="'/views/common/footer.html'"></div>

@@ -1,14 +1,22 @@
+// Defined Grabs Module
 var grabs = angular.module('grabs', [
         'ngRoute',
         'pageTitle'
     ]);
 
+// Grabs Routing Configuration
 grabs.config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     'use strict';
 
     $routeProvider.when('/', {
         templateUrl: '/views/homepage/homepage.html',
-        controller: 'HomepageCtrl'
+        controller: 'HomepageCtrl',
+        key: 'en'
+    }).
+    when('/tr', {
+        templateUrl: '/views/homepage/homepage.html',
+        controller: 'HomepageCtrl',
+        key: 'tr'
     }).
     otherwise({
         redirectTo: '/'
