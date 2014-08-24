@@ -1,5 +1,5 @@
-// Grabs Languaga Service
-grabs.factory('languageService', function($http) {
+// Grabs Language Service
+grabs.factory('languageService', ['$http', function($http) {
     'use strict';
 
     return {
@@ -7,4 +7,4 @@ grabs.factory('languageService', function($http) {
             return $http.get('views/' + path + '.json');
         }
     }
-});
+}]);

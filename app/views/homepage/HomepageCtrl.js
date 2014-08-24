@@ -1,4 +1,4 @@
-grabs.controller('HomepageCtrl', function ($scope, $route, languageService) {
+grabs.controller('HomepageCtrl', ['$scope', '$route', 'languageService', function ($scope, $route, languageService) {
     'use strict';
 
     $scope.lang = $route.current.key;
@@ -6,4 +6,4 @@ grabs.controller('HomepageCtrl', function ($scope, $route, languageService) {
     languageService.getLanguageFile('homepage/' + $scope.lang).success(function (response) {
         $scope.ln = response;
     });
-});
+}]);

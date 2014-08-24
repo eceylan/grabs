@@ -318,6 +318,7 @@ module.exports = function (grunt) {
     // $ grunt live
     grunt.registerTask('live', [
         'clean',
+        'copy:json',
         'copy:img',
         'copy:font',
         'sprite',
