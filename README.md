@@ -1,4 +1,4 @@
-![duo](app/img/grabs/grabs.png)
+![grabs](app/img/grabs/grabs.png)
 
 ## Grabs: Front-End Development Environment
 
