@@ -1,26 +1,37 @@
-## Grabs Install
+![grabs](app/img/grabs/grabs.png)
 
-Node.js, Npm and Grunt must be installed.
+## Grabs: Front-End Development Environment
+
+### Install
+
+[Node.js](http://nodejs.org), [Npm](https://www.npmjs.org/) and [Grunt](http://gruntjs.com) must be installed.
 
 Steps:
 
-1. `git clone git@github.com:sercaneraslan/grabs.git`
-2. `npm install`
-3. `grunt bower:install`
-4. `grunt`
+1. `git clone https://github.com/sercaneraslan/grabs.git`
+1. `cd grabs`
+1. `npm install`
+1. `grunt bower:install`
+1. `grunt`
 
-Check the address: http://localhost:9000/
+### Documentation
 
+Visit the [grabs.in](http://grabs.in) website.
 
-## Grabs Kurulumu
+## Grabs: Front-End Geliştirme Ortamı
 
-Kurulum için Node.js, Npm ve Grunt kurulu olmalıdır.
+### Kurulum
+
+Kurulum için [Node.js](http://nodejs.org), [Npm](https://www.npmjs.org/) ve [Grunt](http://gruntjs.com) kurulu olmalıdır.
 
 Adımlar:
 
-1. `git clone git@github.com:sercaneraslan/grabs.git`
-2. `npm install`
-3. `grunt bower:install`
-4. `grunt`
+1. `git clone https://github.com/sercaneraslan/grabs.git`
+1. `cd grabs`
+1. `npm install`
+1. `grunt bower:install`
+1. `grunt`
 
-Adresi kontrol et: http://localhost:9000/
+### Dökümantasyon
+
+[grabs.in](http://grabs.in/tr) web sitesini ziyaret edin.

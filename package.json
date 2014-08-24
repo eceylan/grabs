@@ -1,5 +1,5 @@
 {
-  "name": "Grabs",
+  "name": "grabs",
   "version": "0.0.1",
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -17,6 +17,7 @@
     "load-grunt-tasks": "~0.6.0",
     "grunt-contrib-imagemin": "~0.7.1",
     "grunt-spritesmith": "~2.1.1",
-    "grunt-template": "~0.2.3"
+    "grunt-template": "~0.2.3",
+    "grunt-plato": "~1.3.0"
   }
 }

@@ -4,11 +4,13 @@
         <meta charset="utf-8">
         <meta http-equiv="Pragma" content="no-cache">
         <meta http-equiv="Expires" content="-1">
-        <meta name="googlebot" content="noarchive" />
-        <meta name="Revisit-After" content="1 days"/>
-        <meta name="robots" content="index,follow"/>
+        <meta name="googlebot" content="noarchive">
+        <meta name="Revisit-After" content="1 days">
+        <meta name="robots" content="index,follow">
+        <link rel="shortcut icon" href="img/grabs/favicon.ico">
+
+        <!-- Directive - pageTitle -->
         <title></title>
-        <!-- <link rel="shortcut icon" href="" /> -->
 
         <!-- Development or Live Mode Styles -->
         <% if (development) { %>
@@ -21,14 +23,8 @@
     </head>
     <body>
 
-        <!-- Include Header -->
-        <div ng-include="'/views/common/header.html'"></div>
-
         <!-- Main Content -->
-        <section ng-view></section>
-
-        <!-- Include Footer -->
-        <div ng-include="'/views/common/footer.html'"></div>
+        <div ng-view></div>
 
         <!-- Development or Live Mode Scripts -->
         <% if (development) { %>
@@ -39,6 +35,5 @@
         <% } else { %>
             <script type="text/javascript" src="js/app.min.<%= hash %>.js"></script>
         <% } %>
-
     </body>
 </html>

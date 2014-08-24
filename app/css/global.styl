@@ -1,29 +1,71 @@
+/*
+*
+* Global Styles
+*
+*/
+
+@import variables
+
+@font-face
+   font-family NueLight
+   font-style normal
+   src url(../font/HelveticaNeue-UltraLight.otf)
+
+@font-face
+   font-family NueBold
+   font-style normal
+   src url(../font/HelveticaNeue-Light.otf)
+
 body
-    font-family 'Lucida Grande', Arial
+    font-family NueLight
 
-header
-section
-footer
-    text-align center
+body
+a
+a:visited
+    color $gray
 
-header
-    background #ea6060
-    padding-bottom 20px
+a
+    text-decoration none
 
-    h1
-        font-size 32px
-        padding 20px 0
-        color #fff
 
-    a
-        color #fff
+/*
+*
+* Sprite Example Usage:
+*
+*
+* You must import the mixins file
+*
+* @import mixins
+*
+*
+* Default:
+*
+* .myClassName
+*     getSprite $myImageFileName
+*
+* Retina:
+*
+* .myClassName
+*     getSprite $myImageFileName $myRetinaImageFileName-2x
+*
+*/
 
-section
-    font-size 20px
-    padding 200px 0
-    background #f8f8f8
 
-footer
-    background #3f3f3f
-    padding 15px
-    color #fff
+/* Test Default:
+
+@import mixins
+
+body
+    getSprite $check
+
+*/
+
+
+/* Test Retina:
+
+@import mixins
+
+body
+    getSprite $check $check-2x
+
+*/

@@ -5,9 +5,7 @@ module.exports = function (grunt) {
         sortedJsPaths = [
             'js/components/angular/*.js',
             'js/components/angular-route/*.js',
-            'js/components/**/*.js',
-            'js/config/**/*.js',
-            'js/directive/**/*.js',
+            'js/**/*.js',
             'views/**/*.js'
         ],
         sortedCssPaths = [
@@ -46,6 +44,7 @@ module.exports = function (grunt) {
         stylus: {
             development: {
                 options: {
+                    paths: ['app/css'],
                     compress: false,
                     linenos: false
                 },
@@ -53,6 +52,7 @@ module.exports = function (grunt) {
             },
             live: {
                 options: {
+                    paths: ['app/css'],
                     compress: true
                 },
                 files: {
@@ -61,13 +61,6 @@ module.exports = function (grunt) {
             }
         },
         copy: {
-            index: {
-                expand: true,
-                cwd: 'app/views',
-                src: 'index.html',
-                dest: 'build',
-                filter: 'isFile'
-            },
             html: {
                 expand: true,
                 cwd: 'app',
@@ -75,10 +68,23 @@ module.exports = function (grunt) {
                 dest: 'build',
                 filter: 'isFile'
             },
+            json: {
+                expand: true,
+                cwd: 'app',
+                src: 'views/**/*.json',
+                dest: 'build',
+                filter: 'isFile'
+            },
             img: {
                 expand: true,
                 cwd: 'app',
-                src: ['img/**/*.png', '!img/sprite/**/*.png', '!img/sprite-retina/**/*.png'],
+                src: ['img/**/*.*', '!img/sprite/**/*.png', '!img/sprite-retina/**/*.png'],
+                dest: 'build'
+            },
+            font: {
+                expand: true,
+                cwd: 'app',
+                src: 'font/**.*',
                 dest: 'build'
             },
             js: {
@@ -109,15 +115,22 @@ module.exports = function (grunt) {
                 }
             }
         },
+        plato: {
+            report: {
+                files: {
+                    'reports/': ['app/js/**/*.js', 'app/views/**/*.js', '!app/js/components/**/*.js'],
+                }
+            }
+        },
         connect: {
             options: {
                 port: 9000,
                 livereload: 35729,
-                hostname: 'localhost'
+                hostname: 'localhost',
+                open: true
             },
             server: {
                 options: {
-                    open: true,
                     base: 'build',
                     middleware: function(connect, options) {
                         var middlewares = [];
@@ -130,6 +143,12 @@ module.exports = function (grunt) {
 
                         return middlewares;
                     }
+                }
+            },
+            report: {
+                options: {
+                    base: 'reports',
+                    keepalive: true
                 }
             }
         },
@@ -202,7 +221,7 @@ module.exports = function (grunt) {
         },
         sprite: {
             normal: {
-                src: 'app/img/sprite/**/*.png',
+                src: 'app/img/sprite/**/*.*',
                 destImg: 'build/img/sprite-<%= hash %>.png',
                 destCSS: 'app/css/sprite.styl',
                 imgPath: '/img/sprite-<%= hash %>.png',
@@ -210,7 +229,7 @@ module.exports = function (grunt) {
                 padding: 1
             },
             retina: {
-                src: 'app/img/sprite-retina/**/*.png',
+                src: 'app/img/sprite-retina/**/*.*',
                 destImg: 'build/img/sprite-retina-<%= hash %>.png',
                 destCSS: 'app/css/sprite-retina.styl',
                 imgPath: '/img/sprite-retina-<%= hash %>.png',
@@ -267,6 +286,10 @@ module.exports = function (grunt) {
             js: {
                 files: 'app/**/*.js',
                 tasks: 'js'
+            },
+            json: {
+                files: 'app/**/*.json',
+                tasks: 'json'
             }
         }
     });
@@ -281,7 +304,9 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'clean',
         'copy:html',
+        'copy:json',
         'copy:img',
+        'copy:font',
         'copy:js',
         'sprite',
         'stylus:development',
@@ -293,7 +318,9 @@ module.exports = function (grunt) {
     // $ grunt live
     grunt.registerTask('live', [
         'clean',
+        'copy:json',
         'copy:img',
+        'copy:font',
         'sprite',
         'stylus:live',
         'htmlmin:views',
@@ -301,13 +328,18 @@ module.exports = function (grunt) {
         'imagemin',
         'template:live',
         'htmlmin:index',
-        // 'connect:server',
-        // 'watch'
+        'connect:server',
+        'watch'
+    ]);
+    // $ grunt report
+    grunt.registerTask('report', [
+        'plato:report',
+        'connect:report'
     ]);
 
     // Watch Tasks
     grunt.registerTask('html', [
-        'copy:index',
+        'template:development',
         'copy:html'
     ]);
     grunt.registerTask('css', [
@@ -316,5 +348,8 @@ module.exports = function (grunt) {
     grunt.registerTask('js', [
         'copy:js',
         'jshint'
+    ]);
+    grunt.registerTask('json', [
+        'copy:json'
     ]);
 };
